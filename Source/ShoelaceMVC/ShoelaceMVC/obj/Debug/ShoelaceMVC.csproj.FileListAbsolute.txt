@@ -1,0 +1,7 @@
+c:\users\ryan\documents\visual studio 2010\Projects\ShoelaceMVC\Source\ShoelaceMVC\ShoelaceMVC\bin\ShoelaceMVC.dll
+c:\users\ryan\documents\visual studio 2010\Projects\ShoelaceMVC\Source\ShoelaceMVC\ShoelaceMVC\bin\ShoelaceMVC.pdb
+c:\users\ryan\documents\visual studio 2010\Projects\ShoelaceMVC\Source\ShoelaceMVC\ShoelaceMVC\bin\EntityFramework.dll
+c:\users\ryan\documents\visual studio 2010\Projects\ShoelaceMVC\Source\ShoelaceMVC\ShoelaceMVC\bin\EntityFramework.xml
+c:\users\ryan\documents\visual studio 2010\Projects\ShoelaceMVC\Source\ShoelaceMVC\ShoelaceMVC\obj\Debug\ResolveAssemblyReference.cache
+c:\users\ryan\documents\visual studio 2010\Projects\ShoelaceMVC\Source\ShoelaceMVC\ShoelaceMVC\obj\Debug\ShoelaceMVC.dll
+c:\users\ryan\documents\visual studio 2010\Projects\ShoelaceMVC\Source\ShoelaceMVC\ShoelaceMVC\obj\Debug\ShoelaceMVC.pdb
