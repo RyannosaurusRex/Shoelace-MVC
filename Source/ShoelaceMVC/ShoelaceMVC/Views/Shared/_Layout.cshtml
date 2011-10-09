@@ -9,21 +9,7 @@
 </head>
 <body style="padding-top:60px">
 
-        <!-- Topbar
-        =============================================================== -->
-        <header class="topbar" >
-          <div class="topbar-inner">
-            <div class="container">
-              <a class="brand" href="/">My MVC Application</a>
-              <ul class="nav">
-                <li class="active"><a href="#overview">Overview</a></li>
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.Partial("_LogOnPartial")</li>
-              </ul>
-            </div>
-          </div>
-        </header>
+        @Html.Partial("_Topbar")
         <section class="container">
             @RenderBody()
         </section>
