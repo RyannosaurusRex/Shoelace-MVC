@@ -1,0 +1,17 @@
+﻿<!-- Topbar
+    ================================================== -->
+<div class="topbar" >
+    <div class="topbar-inner">
+        <div class="container">
+            <a class="brand" href="#">My MVC Application</a>
+            <ul class="nav">
+                <li @if (ViewBag.NavActive == "Home")
+                    {<text>class="active"</text>}>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li @if (ViewBag.NavActive == "About")
+                    {<text>class="active"</text>}>@Html.ActionLink("About", "About", "Home")</li>
+                <li @if (ViewBag.NavActive == "Log On")
+                    {<text>class="active"</text>}>@Html.Partial("_LogOnPartial")</li>
+            </ul>
+        </div>
+    </div>
+</div>
