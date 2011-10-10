@@ -64,9 +64,18 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Membership\ShoelaceContext.cs" />
+    <Compile Include="Membership\CodeFirstContextInit.cs" />
+    <Compile Include="Membership\CodeFirstCrypto.cs" />
+    <Compile Include="Membership\CodeFirstExtendedProvider.cs" />
+    <Compile Include="Membership\CodeFirstMembershipProvider.cs" />
+    <Compile Include="Membership\CodeFirstRoleProvider.cs" />
+    <Compile Include="Membership\CodeFirstSecurity.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

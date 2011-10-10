@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using ShoelaceMVC.Models;
+using ShoelaceMVC.Membership;
 
 namespace ShoelaceMVC.Controllers
 {
@@ -28,9 +29,8 @@ namespace ShoelaceMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+                if (CodeFirstSecurity.Login(model.UserName, model.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
@@ -79,16 +79,15 @@ namespace ShoelaceMVC.Controllers
             {
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                try{
+                CodeFirstSecurity.CreateAccount(model.UserName, model.Password, model.Email, false);
 
-                if (createStatus == MembershipCreateStatus.Success)
-                {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
-                else
+                catch (MembershipCreateUserException ex)
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
+                    ModelState.AddModelError("", ErrorCodeToString(ex.StatusCode));
                 }
             }
 
@@ -114,14 +113,13 @@ namespace ShoelaceMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                
                 // ChangePassword will throw an exception rather
                 // than return false in certain failure scenarios.
                 bool changePasswordSucceeded;
                 try
                 {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                    changePasswordSucceeded = CodeFirstSecurity.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
                 }
                 catch (Exception)
                 {
