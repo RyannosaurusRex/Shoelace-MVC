@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ShoelaceMVC.Membership;
 
 namespace ShoelaceMVC
 {
@@ -35,6 +36,8 @@ namespace ShoelaceMVC
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            System.Data.Entity.Database.SetInitializer(new CodeFirstContextInit());
         }
     }
 }
