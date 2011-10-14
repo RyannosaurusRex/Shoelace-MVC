@@ -8,6 +8,5 @@
     </li>
 }
 else {
-    <li @if (ViewBag.NavActive == "Log On")
-                    {<text>class="active"</text>}>@Html.ActionLink("Log On", "LogOn", "Account")</li>
+<li @if (ViewBag.NavActive == "Log On") {<text>class="active"</text>}>@Html.ActionLink("Log On", "LogOn", "Account")</li>
 }
