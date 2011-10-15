@@ -1,12 +1,1 @@
-﻿﻿@if(Request.IsAuthenticated) {
-    <li class="dropdown" data-dropdown="dropdown">
-        <a class="dropdown-toggle" href="#">@User.Identity.Name</a>
-        <ul class="dropdown-menu">
-            <li>@Html.ActionLink("Reset Password", "ChangePassword", "Account")</li>
-            <li>@Html.ActionLink("Log Off", "LogOff", "Account")</li>
-        </ul>
-    </li>
-}
-else {
-<li @if (ViewBag.NavActive == "Log On") {<text>class="active"</text>}>@Html.ActionLink("Log On", "LogOn", "Account")</li>
-}
+﻿
