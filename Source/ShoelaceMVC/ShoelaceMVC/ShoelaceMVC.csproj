@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Create.cs.t4" />
+    <None Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Delete.cs.t4" />
     <None Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\Edit.cs.t4" />
     <None Include="CodeTemplates\Scaffolders\MvcScaffolding.RazorView\_CreateOrEdit.cs.t4" />
   </ItemGroup>

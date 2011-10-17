@@ -44,14 +44,10 @@ if (!String.IsNullOrEmpty(Model.Layout)) {
 
         <div class="actions">
             <input type="submit" class="btn primary" value="Create" />
+			@Html.ActionLink("Back to List", "Index", new { @class = "btn large"})
         </div>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
 
 <#+
 // Describes the information about a property on the model

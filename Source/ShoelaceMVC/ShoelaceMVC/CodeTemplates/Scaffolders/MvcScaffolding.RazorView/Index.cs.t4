@@ -14,7 +14,7 @@
 <#@ import namespace="System.Reflection" #>
 <# var viewDataType = (EnvDTE.CodeType) Model.ViewDataType; #>
 <# if(viewDataType != null) { #>
-@model <#= viewDataType.FullName #>
+@model IEnumerable<<#= viewDataType.FullName #>>
 
 <# } #>
 @{
@@ -26,27 +26,58 @@
 
 <h2><#= Model.ViewName #></h2>
 
-<# if(Model.ReferenceScriptLibraries) { #>
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
-<# } #>
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-    <fieldset>
-        <legend><#= Model.ViewDataTypeName ?? String.Empty #></legend>
-
-<# foreach (ModelProperty property in GetModelProperties(viewDataType, false).Where(x => x.IsPrimaryKey)) { #>
-        @Html.HiddenFor(model => model.<#= property.Name #>)
-<# } #>
-		@Html.Partial("_CreateOrEdit", Model)
-
-        <div class="actions">
-            <input type="submit" class="btn primary" value="Save" />
-			@Html.ActionLink("Back to List", "Index", new { @class = "btn large"})
-        </div>
-    </fieldset>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="zebra-striped">
+    <tr>
+        <th></th>
+<#
+List<ModelProperty> properties = GetModelProperties(Model.ViewDataType, true);
+foreach (ModelProperty property in properties) {
+    if (!property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+        <th>
+            <#= property.Name #>
+        </th>
+<#
+    }
 }
+#>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+<# if (!String.IsNullOrEmpty(Model.PrimaryKeyName)) { #>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.<#= Model.PrimaryKeyName #> }) |
+            @Html.ActionLink("Details", "Details", new { id=item.<#= Model.PrimaryKeyName #> }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.<#= Model.PrimaryKeyName #> })
+        </td>
+<# } else { #>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+<# } #>
+<#  
+foreach (ModelProperty property in properties) {
+    if (!property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+        <td>
+			@<#= property.ValueExpression.Replace("Model.", "item.") #>
+        </td>
+<#
+    }
+}
+#>
+    </tr>
+}
+
+</table>
+
+
 <#+
 // Describes the information about a property on the model
 class ModelProperty {
