@@ -3186,6 +3186,11 @@
             A string like "The database name '{0}' is not supported because it is an MDF file name. A full connection string must be provided to attach an MDF file."
             </summary>
         </member>
+        <member name="M:System.Data.Entity.Resources.Strings.DbContextServices_MissingDefaultCtor(System.Object)">
+            <summary>
+            A string like "The context factory type '{0}' must have a public default constructor."
+            </summary>
+        </member>
         <member name="P:System.Data.Entity.Resources.Strings.DbPropertyEntry_CannotMarkPropertyUnmodified">
             <summary>
             A string like "Setting IsModified to false for a modified property is not supported."
@@ -3633,6 +3638,11 @@
         <member name="M:System.Data.Entity.Resources.Error.EdmxWriter_EdmxFromModelFirstNotSupported">
             <summary>
             NotSupportedException with message like "Creating a DbModelBuilder or writing the EDMX from a DbContext created using Database First or Model First is not supported. EDMX can only be obtained from a Code First DbContext created without using an existing DbCompiledModel."
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Resources.Error.DbContextServices_MissingDefaultCtor(System.Object)">
+            <summary>
+            InvalidOperationException with message like "The context factory type '{0}' must have a public default constructor."
             </summary>
         </member>
         <member name="M:System.Data.Entity.Resources.Error.ArgumentNull(System.String)">
@@ -5552,6 +5562,92 @@
             The default is 'Data Source=.\SQLEXPRESS; Integrated Security=True; MultipleActiveResultSets=True'.
             </summary>
         </member>
+        <member name="T:System.Data.Entity.Infrastructure.DbConnectionStringOrigin">
+            <summary>
+                Describes the origin of the database connection string associated with a <see cref="T:System.Data.Entity.DbContext"/>.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Infrastructure.DbConnectionStringOrigin.Convention">
+            <summary>
+                The connection string was created by convention.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Infrastructure.DbConnectionStringOrigin.Configuration">
+            <summary>
+                The connection string was read from external configuration.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Infrastructure.DbConnectionStringOrigin.UserCode">
+            <summary>
+                The connection string was explicitly specified at runtime.
+            </summary>
+        </member>
+        <member name="T:System.Data.Entity.Infrastructure.DbContextInfo">
+            <summary>
+                Provides runtime information about a given <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Infrastructure.DbContextInfo.#ctor(System.Type)">
+            <summary>
+                Creates a new instance representing a given <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+            <param name="contextType">The type deriving from <see cref="T:System.Data.Entity.DbContext"/>.</param>
+        </member>
+        <member name="M:System.Data.Entity.Infrastructure.DbContextInfo.#ctor(System.Type,System.Configuration.ConnectionStringSettingsCollection)">
+            <summary>
+                Creates a new instance representing a given <see cref="T:System.Data.Entity.DbContext"/> type. An external list of 
+                connection strings can be supplied and will be used during connection string resolution in place
+                of any connection strings specified in external configuration files.
+            </summary>
+            <param name="contextType">The type deriving from <see cref="T:System.Data.Entity.DbContext"/>.</param>
+            <param name="connectionStringSettings">A collection of connection strings.</param>
+        </member>
+        <member name="M:System.Data.Entity.Infrastructure.DbContextInfo.#ctor(System.Type,System.Data.Entity.Infrastructure.DbProviderInfo)">
+            <summary>
+                Creates a new instance representing a given <see cref="T:System.Data.Entity.DbContext"/> type.  A <see cref="T:System.Data.Entity.Infrastructure.DbProviderInfo"/>
+                can be supplied in order to override the default determined provider used when constructing
+                the underlying EDM model.
+            </summary>
+            <param name="contextType">The type deriving from <see cref="T:System.Data.Entity.DbContext"/>.</param>
+            <param name="modelProviderInfo">A <see cref="T:System.Data.Entity.Infrastructure.DbProviderInfo"/> specifying the underlying ADO.NET provider to target.</param>
+        </member>
+        <member name="M:System.Data.Entity.Infrastructure.DbContextInfo.CreateInstance">
+            <summary>
+                If instances of the underlying <see cref="T:System.Data.Entity.DbContext"/> type can be created, returns
+                a new instance; otherwise returns null.
+            </summary>
+            <returns>A <see cref="T:System.Data.Entity.DbContext"/> instance.</returns>
+        </member>
+        <member name="P:System.Data.Entity.Infrastructure.DbContextInfo.ContextType">
+            <summary>
+                The concrete <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Infrastructure.DbContextInfo.IsConstructible">
+            <summary>
+                Whether or not instances of the underlying <see cref="T:System.Data.Entity.DbContext"/> type can be created.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Infrastructure.DbContextInfo.ConnectionString">
+            <summary>
+                The connection string used by the underlying <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Infrastructure.DbContextInfo.ConnectionStringName">
+            <summary>
+                The connection string name used by the underlying <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Infrastructure.DbContextInfo.ConnectionProviderName">
+            <summary>
+                The ADO.NET provider name of the connection used by the underlying <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Infrastructure.DbContextInfo.ConnectionStringOrigin">
+            <summary>
+                The origin of the connection string used by the underlying <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+        </member>
         <member name="T:System.Data.Entity.Infrastructure.DbComplexPropertyEntry">
             <summary>
             A non-generic version of the <see cref="T:System.Data.Entity.Infrastructure.DbComplexPropertyEntry`2"/> class.
@@ -6918,6 +7014,26 @@
             in the model but will not be automatically initialized.
             </summary>
         </member>
+        <member name="T:System.Data.Entity.Infrastructure.IDbContextFactory`1">
+            <summary>
+                A factory for creating derived <see cref="T:System.Data.Entity.DbContext"/> instances. Implement this 
+                interface to enable design-time services for context types that do not have a 
+                public default constructor.
+                
+                At design-time, derived <see cref="T:System.Data.Entity.DbContext"/> instances can be created in order to enable specific
+                design-time experiences such as model rendering, DDL generation etc. To enable design-time instantiation
+                for derived <see cref="T:System.Data.Entity.DbContext"/> types that do not have a public, default constructor, implement 
+                this interface. Design-time services will auto-discover implementations of this interface that are in the
+                same assembly as the derived <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+            <typeparam name="TContext"></typeparam>
+        </member>
+        <member name="M:System.Data.Entity.Infrastructure.IDbContextFactory`1.Create">
+            <summary>
+            Creates a new instance of a derived <see cref="T:System.Data.Entity.DbContext"/> type.
+            </summary>
+            <returns>An instance of TContext</returns>
+        </member>
         <member name="T:System.Data.Entity.Internal.InternalSqlQuery`1">
             <summary>
             Generic wrapper around <see cref="T:System.Data.Entity.Internal.InternalSqlQuery"/> to allow results to be
@@ -7289,10 +7405,10 @@
             <param name="contextType">Type of the context.</param>
             <returns>The database name to use.</returns>
         </member>
-        <member name="M:System.Data.Entity.Internal.DbHelpers.CloneObjectContext(System.Data.Objects.ObjectContext)">
+        <member name="M:System.Data.Entity.Internal.DbHelpers.CloneObjectContext(System.Data.Objects.ObjectContext,System.Boolean)">
             <summary>
-            Creates a clone of the given <see cref="T:System.Data.Objects.ObjectContext"/> that has the same connection and
-            loaded metadata as the original but a new, empty, state manager.
+            Creates a clone of the given <see cref="T:System.Data.Objects.ObjectContext"/> that has the same 
+            loaded metadata as the original but a new connection and new, empty, state manager.
             </summary>
             <param name="original">The original.</param>
             <returns>The clone.</returns>
@@ -7420,35 +7536,60 @@
         </member>
         <member name="T:System.Data.Entity.Internal.IInternalConnection">
             <summary>
-            IInternalConnection objects manage DbConnections.
-            Two concrete implementations of this interface exist--LazyInternalConnection and EagerInternalConnection.
+                IInternalConnection objects manage DbConnections.
+                Two concrete implementations of this interface exist--LazyInternalConnection and EagerInternalConnection.
             </summary>
         </member>
         <member name="M:System.Data.Entity.Internal.IInternalConnection.CreateObjectContextFromConnectionModel">
             <summary>
-            Creates an <see cref="T:System.Data.Objects.ObjectContext"/> from metadata in the connection.  This method must
-            only be called if ConnectionHasModel returns true.
+                Creates an <see cref="T:System.Data.Objects.ObjectContext"/> from metadata in the connection.  This method must
+                only be called if ConnectionHasModel returns true.
             </summary>
             <returns>The newly created context.</returns>
         </member>
         <member name="P:System.Data.Entity.Internal.IInternalConnection.Connection">
             <summary>
-            Returns the underlying DbConnection.
+                Returns the underlying DbConnection.
             </summary>
         </member>
         <member name="P:System.Data.Entity.Internal.IInternalConnection.ConnectionKey">
             <summary>
-            Returns a key consisting of the connection type and connection string.
-            If this is an EntityConnection then the metadata path is included in the key returned.
+                Returns a key consisting of the connection type and connection string.
+                If this is an EntityConnection then the metadata path is included in the key returned.
             </summary>
         </member>
         <member name="P:System.Data.Entity.Internal.IInternalConnection.ConnectionHasModel">
             <summary>
-            Gets a value indicating whether the connection is an EF connection which therefore contains
-            metadata specifying the model, or instead is a store connection, in which case it contains no
-            model info.
+                Gets a value indicating whether the connection is an EF connection which therefore contains
+                metadata specifying the model, or instead is a store connection, in which case it contains no
+                model info.
             </summary>
             <value><c>true</c> if the connection contains model info; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:System.Data.Entity.Internal.IInternalConnection.ConnectionStringOrigin">
+            <summary>
+                Returns the origin of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.IInternalConnection.ConnectionStringSettings">
+            <summary>
+                Gets or sets the connection string settings used when resolving the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.IInternalConnection.ProviderName">
+            <summary>
+                Gets or sets the provider to be used when creating the underlying connection.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.IInternalConnection.ConnectionStringName">
+            <summary>
+                Gets the name of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.IInternalConnection.OriginalConnectionString">
+            <summary>
+                Gets the original connection string.
+            </summary>
         </member>
         <member name="M:System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel">
             <summary>
@@ -7460,6 +7601,17 @@
         <member name="M:System.Data.Entity.Internal.InternalConnection.Dispose">
             <summary>
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Internal.InternalConnection.OnConnectionInitialized(System.Data.Common.DbConnection)">
+            <summary>
+            Called after the connection is initialized for the first time.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Internal.InternalConnection.AddAppNameCookieToConnectionString(System.Data.Common.DbConnection)">
+            <summary>
+            Adds a tracking cookie to the connection string for SqlConnections. Returns the
+            possibly modified store connection string.
             </summary>
         </member>
         <member name="P:System.Data.Entity.Internal.InternalConnection.Connection">
@@ -7482,6 +7634,31 @@
             </summary>
             <value><c>true</c> if the connection contains model info; otherwise, <c>false</c>.</value>
         </member>
+        <member name="P:System.Data.Entity.Internal.InternalConnection.ConnectionStringOrigin">
+            <summary>
+                Returns the origin of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalConnection.ConnectionStringSettings">
+            <summary>
+                Gets or sets the connection string settings used when resolving the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalConnection.ProviderName">
+            <summary>
+                Gets or sets the provider to be used when creating the underlying connection.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalConnection.ConnectionStringName">
+            <summary>
+                Gets the name of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalConnection.OriginalConnectionString">
+            <summary>
+                Gets the original connection string.
+            </summary>
+        </member>
         <member name="P:System.Data.Entity.Internal.InternalConnection.UnderlyingConnection">
             <summary>
             Gets or sets the underlying <see cref="T:System.Data.Common.DbConnection"/> object.  No initialization is done when the
@@ -7491,16 +7668,20 @@
         </member>
         <member name="M:System.Data.Entity.Internal.EagerInternalConnection.#ctor(System.Data.Common.DbConnection,System.Boolean)">
             <summary>
-            Creates a new EagerInternalConnection that wraps an existing DbConnection.  The existing DbConnection will not
-            be disposed when the EagerInternalConnection is disposed.
+            Creates a new EagerInternalConnection that wraps an existing DbConnection.
             </summary>
             <param name="existingConnection">An existing connection.</param>
-            <param name="conectionOwned">If set to <c>true</c> then the underlying connection should be disposed when this object is disposed.</param>
+            <param name="connectionOwned">If set to <c>true</c> then the underlying connection should be disposed when this object is disposed.</param>
         </member>
         <member name="M:System.Data.Entity.Internal.EagerInternalConnection.Dispose">
             <summary>
             Dispose the existing connection is the original caller has specified that it should be disposed
             by the framework.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.EagerInternalConnection.ConnectionStringOrigin">
+            <summary>
+                Returns the origin of the underlying connection string.
             </summary>
         </member>
         <member name="T:System.Data.Entity.Internal.EagerInternalContext">
@@ -7533,6 +7714,11 @@
             Returns the underlying <see cref="P:System.Data.Entity.Internal.InternalContext.ObjectContext"/> without causing the underlying database to be created
             or the database initialization strategy to be executed.
             This is used to get a context that can then be used for database creation/initialization.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Internal.InternalContext.CreateObjectContextForDdlOps">
+            <summary>
+            Creates a cloned ObjectContext suitable for use with DDL operations. 
             </summary>
         </member>
         <member name="M:System.Data.Entity.Internal.InternalContext.UseTempObjectContext">
@@ -7903,8 +8089,33 @@
         </member>
         <member name="P:System.Data.Entity.Internal.InternalContext.Connection">
             <summary>
-            The connection underlying this context.  Accessing this property does not cause the context
-            to be initialized, only its connection.
+                The connection underlying this context.  Accessing this property does not cause the context
+                to be initialized, only its connection.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalContext.ConnectionStringOrigin">
+            <summary>
+                Returns the origin of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalContext.ConnectionStringSettings">
+            <summary>
+                Gets or sets the connection string settings used when resolving the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalContext.ModelProviderInfo">
+            <summary>
+                Gets or sets the provider details to be used when building the EDM model.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalContext.ConnectionStringName">
+            <summary>
+                Gets the name of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.InternalContext.OnModelCreating">
+            <summary>
+                Gets or sets a custom OnModelCreating action.
             </summary>
         </member>
         <member name="P:System.Data.Entity.Internal.InternalContext.DatabaseOperations">
@@ -7932,6 +8143,11 @@
             Returns the underlying <see cref="P:System.Data.Entity.Internal.EagerInternalContext.ObjectContext"/> without causing the underlying database to be created
             or the database initialization strategy to be executed.
             This is used to get a context that can then be used for database creation/initialization.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Internal.EagerInternalContext.CreateObjectContextForDdlOps">
+            <summary>
+            Creates a cloned ObjectContext suitable for use with DDL operations. 
             </summary>
         </member>
         <member name="M:System.Data.Entity.Internal.EagerInternalContext.CreateModelBuilderForEdmx">
@@ -7985,6 +8201,11 @@
         <member name="P:System.Data.Entity.Internal.EagerInternalContext.Connection">
             <summary>
             The connection underlying this context.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.EagerInternalContext.ConnectionStringOrigin">
+            <summary>
+                Returns the origin of the underlying connection string.
             </summary>
         </member>
         <member name="P:System.Data.Entity.Internal.EagerInternalContext.LazyLoadingEnabled">
@@ -8196,17 +8417,38 @@
             if it does not already exist.
             </summary>
         </member>
-        <member name="M:System.Data.Entity.Internal.LazyInternalConnection.TryInitializeFromAppConfig(System.String)">
+        <member name="M:System.Data.Entity.Internal.LazyInternalConnection.TryInitializeFromAppConfig(System.String,System.Configuration.ConnectionStringSettingsCollection)">
             <summary>
             Searches the app.config/web.config file for a connection that matches the given name.
             The connection might be a store connection or an EF connection.
             </summary>
             <param name="name">The connection name.</param>
+            <param name="connectionStrings"></param>
             <returns>True if a connection from the app.config file was found and used.</returns>
         </member>
         <member name="P:System.Data.Entity.Internal.LazyInternalConnection.Connection">
             <summary>
             Returns the underlying DbConnection, creating it first if it does not already exist.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalConnection.ConnectionStringOrigin">
+            <summary>
+                Returns the origin of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalConnection.ConnectionStringSettings">
+            <summary>
+                Gets or sets the connection string settings used when resolving the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalConnection.ProviderName">
+            <summary>
+                Gets or sets the provider to be used when creating the underlying connection.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalConnection.ConnectionStringName">
+            <summary>
+                Gets the name of the underlying connection string.
             </summary>
         </member>
         <member name="P:System.Data.Entity.Internal.LazyInternalConnection.ConnectionKey">
@@ -8245,6 +8487,11 @@
             Returns the underlying <see cref="P:System.Data.Entity.Internal.LazyInternalContext.ObjectContext"/> without causing the underlying database to be created
             or the database initialization strategy to be executed.
             This is used to get a context that can then be used for database creation/initialization.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Internal.LazyInternalContext.CreateObjectContextForDdlOps">
+            <summary>
+            Creates a cloned ObjectContext suitable for use with DDL operations. 
             </summary>
         </member>
         <member name="M:System.Data.Entity.Internal.LazyInternalContext.SaveChanges">
@@ -8334,6 +8581,31 @@
             <summary>
             The connection underlying this context.  Accessing this property does not cause the context
             to be initialized, only its connection.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalContext.ConnectionStringOrigin">
+            <summary>
+                Returns the origin of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalContext.ConnectionStringSettings">
+            <summary>
+                Gets or sets the connection string settings used when resolving the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalContext.ConnectionStringName">
+            <summary>
+                Gets the name of the underlying connection string.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalContext.ModelProviderInfo">
+            <summary>
+                Gets or sets the provider details to be used when building the EDM model.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Internal.LazyInternalContext.OnModelCreating">
+            <summary>
+                Gets or sets a custom OnModelCreating action.
             </summary>
         </member>
         <member name="P:System.Data.Entity.Internal.LazyInternalContext.DefaultInitializer">
