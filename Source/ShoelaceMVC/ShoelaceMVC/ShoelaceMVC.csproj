@@ -72,7 +72,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers.cs" />
     <Compile Include="Membership\ShoelaceContext.cs" />
     <Compile Include="Membership\CodeFirstContextInit.cs" />
     <Compile Include="Membership\CodeFirstCrypto.cs" />
