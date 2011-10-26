@@ -128,6 +128,17 @@ namespace ShoelaceMVC.Membership
             return Guid.Parse(user.ProviderUserKey.ToString());
         }
 
+        public static string GetUserEmail(string userName)
+        {
+            VerifyProvider();
+            MembershipUser user = System.Web.Security.Membership.GetUser(userName);
+            if (user == null)
+            {
+                return "";
+            }
+            return user.Email;
+        }
+
         public static Guid GetUserIdFromPasswordResetToken(string token)
         {
             CodeFirstExtendedProvider provider = VerifyProvider();
