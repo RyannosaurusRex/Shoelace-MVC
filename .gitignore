@@ -33,3 +33,7 @@ obj/
 # Cache Folders
 _ReSharper.*
 
+#NuGet packages
+#Use package restore workflow. See http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages
+packages/
+
