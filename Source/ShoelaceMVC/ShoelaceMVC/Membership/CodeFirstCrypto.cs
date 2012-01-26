@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace ShoelaceMVC.Membership
+namespace $safeprojectname$.Membership
 {
     public sealed class CodeFirstCrypto
     {

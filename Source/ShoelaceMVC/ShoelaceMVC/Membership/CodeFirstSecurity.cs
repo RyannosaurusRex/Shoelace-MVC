@@ -6,7 +6,7 @@ using System.Web.Security;
 using System.Runtime.CompilerServices;
 using System.Net;
 
-namespace ShoelaceMVC.Membership
+namespace $safeprojectname$.Membership
 {
     public static class CodeFirstSecurity
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using ShoelaceMVC.Membership;
-using ShoelaceMVC.Entities;
+using $safeprojectname$.Membership;
+using $safeprojectname$.Entities;
 
-namespace ShoelaceMVC.Membership
+namespace $safeprojectname$.Membership
 {
     public class CodeFirstRoleProvider : RoleProvider
             {
@@ -45,7 +45,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic result = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (result != null)
@@ -69,7 +69,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -87,7 +87,7 @@ namespace ShoelaceMVC.Membership
 
                 public override string[] GetAllRoles()
                 {
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         return context.Roles.Select(Rl => Rl.RoleName).ToArray();
                     }
@@ -99,7 +99,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         var role = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (role == null)
@@ -118,7 +118,7 @@ namespace ShoelaceMVC.Membership
 	if (string.IsNullOrEmpty(usernameToMatch)) {
 		throw CreateArgumentNullOrEmptyException("usernameToMatch");
 	}
-	using (ShoelaceContext context = new ShoelaceContext()) {
+	using ($safeprojectname$Context context = new $safeprojectname$Context()) {
 		var query = from Rl in context.Roles from Usr in Rl.Users where Rl.RoleName == roleName && Usr.Username.Contains(usernameToMatch) select Usr.Username;
 		return query.ToArray();
 	}
@@ -130,7 +130,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic role = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (role == null)
@@ -165,7 +165,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         var user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -182,7 +182,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic role = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (role != null)
@@ -201,7 +201,7 @@ namespace ShoelaceMVC.Membership
 
                 public override void AddUsersToRoles(string[] usernames, string[] roleNames)
                 {
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         var users = context.Users.Where(usr => usernames.Contains(usr.Username)).ToList();
                         var roles = context.Roles.Where(rl => roleNames.Contains(rl.RoleName)).ToList();
@@ -223,7 +223,7 @@ namespace ShoelaceMVC.Membership
 
                 public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
                 {
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         foreach (string username_loopVariable in usernames)
                         {

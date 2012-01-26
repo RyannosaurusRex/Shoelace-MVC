@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace ShoelaceMVC.Membership
+namespace $safeprojectname$.Membership
 {
     public abstract class CodeFirstExtendedProvider : MembershipProvider
     {

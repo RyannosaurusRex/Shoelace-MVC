@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace ShoelaceMVC.Membership
+namespace $safeprojectname$.Membership
 {
-    public class CodeFirstContextInit : DropCreateDatabaseAlways<ShoelaceContext>
+    public class CodeFirstContextInit : DropCreateDatabaseAlways<$safeprojectname$Context>
     {
 
-        protected override void Seed(ShoelaceContext context)
+        protected override void Seed($safeprojectname$Context context)
         {
 
             CodeFirstSecurity.CreateAccount("Demo", "Demo", "demo@demo.com");

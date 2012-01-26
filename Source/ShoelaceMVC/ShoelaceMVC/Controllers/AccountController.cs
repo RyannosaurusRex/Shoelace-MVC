@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using ShoelaceMVC.Models;
-using ShoelaceMVC.Membership;
+using $safeprojectname$.Models;
+using $safeprojectname$.Membership;
 
-namespace ShoelaceMVC.Controllers
+namespace $safeprojectname$.Controllers
 {
     public class AccountController : Controller
     {

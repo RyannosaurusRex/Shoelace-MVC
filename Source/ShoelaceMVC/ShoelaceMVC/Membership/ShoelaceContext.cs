@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using ShoelaceMVC.Entities;
+using $safeprojectname$.Entities;
 
-namespace ShoelaceMVC.Membership
+namespace $safeprojectname$.Membership
 {
-    public class ShoelaceContext : DbContext
+    public class $safeprojectname$Context : DbContext
     {
-        public ShoelaceContext() : base("ShoelaceMVC")
+        public $safeprojectname$Context() : base("$safeprojectname$")
         {
             
         }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ShoelaceMVC.Entities
+namespace $safeprojectname$.Entities
 {
     public class Role
     {

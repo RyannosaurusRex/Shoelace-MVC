@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using ShoelaceMVC.Entities;
+using $safeprojectname$.Entities;
 
-namespace ShoelaceMVC.Membership
+namespace $safeprojectname$.Membership
 {
     public class CodeFirstMembershipProvider : CodeFirstExtendedProvider
             {
@@ -53,7 +53,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw new MembershipCreateUserException(MembershipCreateStatus.InvalidEmail);
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         dynamic emailuser = context.Users.FirstOrDefault(Usr => Usr.Email == email);
@@ -97,7 +97,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("accountConfirmationToken");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic row = context.Users.FirstOrDefault(Usr => Usr.ConfirmationToken == accountConfirmationToken);
                         if (row != null)
@@ -124,7 +124,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("newPassword");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -166,7 +166,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -185,7 +185,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -209,7 +209,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -242,7 +242,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("newPassword");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.PasswordVerificationToken == token && Usr.PasswordVerificationTokenExpirationDate > DateTime.UtcNow);
                         if (user != null)
@@ -276,7 +276,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("password");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         User user = null;
                         user = context.Users.FirstOrDefault(Usr => Usr.Username == userNameOrEmail);
@@ -334,7 +334,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -351,7 +351,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -368,7 +368,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -385,7 +385,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -403,7 +403,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("token");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic result = context.Users.FirstOrDefault(Usr => Usr.PasswordVerificationToken == token);
                         if (result != null)
@@ -420,7 +420,7 @@ namespace ShoelaceMVC.Membership
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (ShoelaceContext context = new ShoelaceContext())
+                    using ($safeprojectname$Context context = new $safeprojectname$Context())
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)

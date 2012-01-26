@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using ShoelaceMVC.Membership;
+using $safeprojectname$.Membership;
 
-namespace ShoelaceMVC
+namespace $safeprojectname$
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
