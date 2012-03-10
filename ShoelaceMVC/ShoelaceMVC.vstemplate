@@ -1,0 +1,129 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+    <TemplateData>
+        <Name Package="{1F372076-D9CE-432D-BC4F-ABFF39671C5C}" ID="21206"/>
+        <Description Package="{1F372076-D9CE-432D-BC4F-ABFF39671C5C}" ID="21207"/>
+        <Icon Package="{349c5850-65df-11da-9384-00065b846f21}" ID="9001" />
+        <ProjectType>CSharp</ProjectType>
+        <ProjectSubType>Web</ProjectSubType>
+        <TemplateGroupID>Web</TemplateGroupID>
+        <TemplateID>ShoelaceMVC</TemplateID>
+        <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+        <SortOrder>42</SortOrder>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>MvcApplication</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LocationField>Enabled</LocationField>
+        <PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+        <Hidden>true</Hidden>
+    </TemplateData>
+    <TemplateContent>
+        <CustomParameters>
+            <CustomParameter Name="$language$" Value="C#" />
+            <CustomParameter Name="$languageext$" Value="cs" />
+            <CustomParameter Name="$autoeventwireup$" Value="true" />
+            <CustomParameter Name="$globalclassname$" Value="MvcApplication" />
+            <CustomParameter Name="$sitemasterclassname$" Value="Views.Shared.Site" />
+            <CustomParameter Name="$indexerleft$" Value="[" />
+            <CustomParameter Name="$indexerright$" Value="]" />
+            <CustomParameter Name="$MVCReferences$" Value="System.Web.Mvc.dll"/>
+        </CustomParameters>
+        <Project File="ShoelaceMVC.csproj" ReplaceParameters="true">
+            <Folder Name="App_Data" TargetFolderName="App_Data" />
+            <Folder Name="Controllers" TargetFolderName="Controllers">
+                <ProjectItem ReplaceParameters="true" TargetFileName="AccountController.cs">AccountController.cs</ProjectItem>
+                <ProjectItem OpenInEditor="true" OpenOrder="10" ReplaceParameters="true" TargetFileName="HomeController.cs">HomeController.cs</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax">Global.asax</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax.cs">Global.asax.cs</ProjectItem>
+            <Folder Name="Models" TargetFolderName="Models">
+                <ProjectItem ReplaceParameters="true" TargetFileName="AccountModels.cs">AccountModels.cs</ProjectItem>
+            </Folder>
+            <Folder Name="Properties" TargetFolderName="Properties">
+                <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+            </Folder>
+            <Folder Name="CodeTemplates" TargetFolderName="CodeTemplates">
+                <Folder Name="Scaffolders" TargetFolderName="Scaffolders">
+                    <Folder Name="MvcScaffolding.RazorView" TargetFolderName="MvcScaffolding.RazorView">
+                       <ProjectItem ReplaceParameters="false" TargetFileName="_CreateOrEdit.cs.t4">_CreateOrEdit.cs.t4</ProjectItem>
+                       <ProjectItem ReplaceParameters="false" TargetFileName="Create.cs.t4">Create.cs.t4</ProjectItem>
+                       <ProjectItem ReplaceParameters="false" TargetFileName="Edit.cs.t4">Edit.cs.t4</ProjectItem>
+                       <ProjectItem ReplaceParameters="false" TargetFileName="Delete.cs.t4">Delete.cs.t4</ProjectItem>
+                       <ProjectItem ReplaceParameters="false" TargetFileName="Details.cs.t4">Details.cs.t4</ProjectItem>
+                       <ProjectItem ReplaceParameters="false" TargetFileName="Index.cs.t4">Index.cs.t4</ProjectItem>
+                   </Folder>
+                </Folder>
+            </Folder>
+            <Folder Namne="Entities" TargetFolderName="Entities">
+                <ProjectItem ReplaceParameters="true" TargetFileName="Role.cs">Role.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="User.cs">User.cs</ProjectItem>
+            </Folder>
+            <Folder Name="Membership" TargetFolderName="Membership">
+                <ProjectItem ReplaceParameters="true" TargetFileName="CodeFirstContextInit.cs">CodeFirstContextInit.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="CodeFirstCrypto.cs">CodeFirstCrypto.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="CodeFirstExtendedProvider.cs">CodeFirstExtendedProvider.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="CodeFirstMembershipProvider.cs">CodeFirstMembershipProvider.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="CodeFirstRoleProvider.cs">CodeFirstRoleProvider.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="CodeFirstSecurity.cs">CodeFirstSecurity.cs</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$Context.cs">ShoelaceContext.cs</ProjectItem>
+            </Folder>
+            <Folder Name="Views" TargetFolderName="Views">
+                <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="_ViewStart.cshtml">_ViewStart.cshtml</ProjectItem>
+                <Folder Name="Account" TargetFolderName="Account">
+                    <ProjectItem ReplaceParameters="true" TargetFileName="ChangePassword.cshtml">ChangePassword.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="ChangePasswordSuccess.cshtml">ChangePasswordSuccess.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="LogOn.cshtml">LogOn.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="Register.cshtml">Register.cshtml</ProjectItem>
+                </Folder>
+                <Folder Name="Home" TargetFolderName="Home">
+                    <ProjectItem ReplaceParameters="true" TargetFileName="About.cshtml">About.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="Index.cshtml">Index.cshtml</ProjectItem>
+                </Folder>
+                <Folder Name="Shared" TargetFolderName="Shared">
+                    <ProjectItem ReplaceParameters="true" TargetFileName="Error.cshtml">Error.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_LogOnPartial.cshtml">_LogOnPartial.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_Layout.cshtml">_Layout.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_Topbar.cshtml">_Topbar.cshtml</ProjectItem>
+                </Folder>
+            </Folder>
+            <Folder Name="Content" TargetFolderName="Content">
+                <ProjectItem ReplaceParameters="true" TargetFileName="Site.css">Site.css</ProjectItem>
+            </Folder>
+            <Folder Name="Scripts" TargetFolderName="Scripts">
+                <ProjectItem ReplaceParameters="false" TargetFileName="jquery.unobtrusive-ajax.js">jquery.unobtrusive-ajax.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="jquery.unobtrusive-ajax.min.js">jquery.unobtrusive-ajax.min.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="jquery.validate.unobtrusive.js">jquery.validate.unobtrusive.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="jquery.validate.unobtrusive.min.js">jquery.validate.unobtrusive.min.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftAjax.js">MicrosoftAjax.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftAjax.debug.js">MicrosoftAjax.debug.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftMvcAjax.js">MicrosoftMvcAjax.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftMvcAjax.debug.js">MicrosoftMvcAjax.debug.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftMvcValidation.js">MicrosoftMvcValidation.js</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftMvcValidation.debug.js">MicrosoftMvcValidation.debug.js</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Web.Debug.config">Web.Debug.config</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Web.Release.config">Web.Release.config</ProjectItem>
+        </Project>
+    </TemplateContent>
+    <WizardExtension>
+        <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+        <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+    </WizardExtension>
+    <WizardData>
+        <packages>
+          <package id="EntityFramework" version="4.3.1" />
+          <package id="jQuery" version="1.5.1" />
+          <package id="jQuery.UI.Combined" version="1.8.11" />
+          <package id="jQuery.Validation" version="1.8.0" />
+          <package id="jQuery.vsdoc" version="1.5.1" />
+          <package id="microsoft-web-helpers" version="1.15" />
+          <package id="Modernizr" version="1.7" />
+          <package id="MvcScaffolding" version="1.0.6" />
+          <package id="T4Scaffolding" version="1.0.5" />
+          <package id="Twitter.Bootstrap" version="1.4.0" />
+        </packages>
+    </WizardData>
+</VSTemplate>

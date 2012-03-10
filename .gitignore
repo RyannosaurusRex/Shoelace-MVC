@@ -37,3 +37,6 @@ _ReSharper.*
 #Use package restore workflow. See http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages
 packages/
 
+#Ignore our VSIX build artifact
+*.vsix
+

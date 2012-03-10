@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="ShoelaceMVC.CSharp.A2634C4B-310F-4F57-9690-BDE944C18A8E">
+    <Name>ShoelaceMVC</Name>
+    <Author>Ryan Hayes</Author>
+    <Version>1.0</Version>
+    <Description xml:space="preserve">ShoelaceMVC is a starter project to get you up and running with a production quality application as quickly as possible. Shoelace has many features above and beyond the standard ASP.NET MVC 3 starter projects:
+
+CodeFirstMembershipProvider http://codefirstmembership.codeplex.com
+Twitter Bootstrap http://twitter.github.com/bootstrap
+MVCScaffolding http://mvcscaffolding.codeplex.com</Description>
+    <Locale>1033</Locale>
+    <License>license.txt</License>
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>VWDExpress</Edition>
+      </VisualStudio>
+      <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>VWDExpress</Edition>
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="2.0" MaxVersion="4.0" />
+  </Identifier>
+  <Content>
+    <VsPackage>ShoelaceMVC.pkgdef</VsPackage>
+    <ProjectTemplate>ProjectTemplates</ProjectTemplate>
+  </Content>
+</Vsix>
