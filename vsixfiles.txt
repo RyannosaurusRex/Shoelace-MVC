@@ -1,4 +1,5 @@
 ProjectTemplates\CSharp\Web\ShoelaceMVC.zip
+packages\*
 extension.vsixmanifest
 license.txt
 ShoelaceMVC.pkgdef

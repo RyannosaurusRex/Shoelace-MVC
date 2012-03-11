@@ -11,6 +11,8 @@ Twitter Bootstrap http://twitter.github.com/bootstrap
 MVCScaffolding http://mvcscaffolding.codeplex.com</Description>
     <Locale>1033</Locale>
     <License>license.txt</License>
+    <MoreInfoUrl>http://github.com/RyannosaurusRex/Shoelace-MVC</MoreInfoUrl>
+    <GettingStartedGuide>http://ryanhayes.net/blog/shoelacemvc-open-source-asp-net-mvc-3-starter-project-for-build/</GettingStartedGuide>
     <SupportedProducts>
       <VisualStudio Version="10.0">
         <Edition>Ultimate</Edition>
@@ -27,6 +29,12 @@ MVCScaffolding http://mvcscaffolding.codeplex.com</Description>
     </SupportedProducts>
     <SupportedFrameworkRuntimeEdition MinVersion="2.0" MaxVersion="4.0" />
   </Identifier>
+  <References>
+    <Reference Id="NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5" MinVersion="1.5.20902.9026">
+      <Name>NuGet Package Manager</Name>
+      <MoreInfoUrl>http://docs.nuget.org/</MoreInfoUrl>
+    </Reference>
+  </References>
   <Content>
     <VsPackage>ShoelaceMVC.pkgdef</VsPackage>
     <ProjectTemplate>ProjectTemplates</ProjectTemplate>
