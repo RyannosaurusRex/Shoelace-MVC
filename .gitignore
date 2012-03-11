@@ -33,3 +33,8 @@ obj/
 # Cache Folders
 _ReSharper.*
 
+*.cache
+*.pdc
+*.pdb
+*.dll
+
