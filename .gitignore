@@ -19,6 +19,8 @@ Thumbs.db
 *.user
 
 # Build Directories
+[Bb]in
+[Dd]ebug*/
 bin/
 obj/
 
@@ -32,4 +34,9 @@ obj/
 
 # Cache Folders
 _ReSharper.*
+
+*.cache
+*.pdc
+*.pdb
+*.dll
 
