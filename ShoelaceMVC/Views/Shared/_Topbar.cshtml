@@ -1,0 +1,27 @@
+﻿﻿<!-- Topbar -->
+<div class="topbar" >
+    <div class="topbar-inner">
+        <div class="container">
+            <a class="brand" href="/"> $safeprojectname$</a>
+            <ul class="nav">
+                <li @if (ViewBag.NavActive == "Home")
+                    {<text>class="active"</text>}>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li @if (ViewBag.NavActive == "About")
+                    {<text>class="active"</text>}>@Html.ActionLink("About", "About", "Home")</li>
+            </ul>
+            <ul class="nav secondary-nav">@if(Request.IsAuthenticated) {<li style="padding-top:5px">@Microsoft.Web.Helpers.Gravatar.GetHtml( $safeprojectname$.Membership.CodeFirstSecurity.GetUserEmail(User.Identity.Name), 30)</li>
+                    <li class="dropdown" data-dropdown="dropdown">
+                        <a class="dropdown-toggle" href="#">@User.Identity.Name</a>
+                        <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Reset Password", "ChangePassword", "Account")</li>
+                                <li>@Html.ActionLink("Log Off", "LogOff", "Account")</li>
+                        </ul>
+                    </li>
+                 }
+                 else
+                 {
+                <li @if (ViewBag.NavActive == "Log On"){<text>class="active"</text>}>@Html.ActionLink("Log On", "LogOn", "Account")</li>}
+            </ul>
+        </div>
+    </div>
+</div>
