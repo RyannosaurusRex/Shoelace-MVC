@@ -5,4 +5,5 @@
 	<Default Extension="txt" ContentType="text/plain" />
 	<Default Extension="zip" ContentType="application/zip" />
 	<Default Extension="nupkg" ContentType="application/zip" />
+	<Default Extension="png" ContentType="application/octet-stream" />
 </Types>
