@@ -19,6 +19,8 @@ Thumbs.db
 *.user
 
 # Build Directories
+[Bb]in
+[Dd]ebug*/
 bin/
 obj/
 
