@@ -3,7 +3,7 @@
   <Identifier Id="ShoelaceMVC.CSharp.A2634C4B-310F-4F57-9690-BDE944C18A8E">
     <Name>ShoelaceMVC</Name>
     <Author>Ryan Hayes</Author>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Description xml:space="preserve">A project template that uses Twitter's Bootstrap for an elegant UI, CodeFirstMember​ship for quick, easy, extensible membership, and MVCScaffolding to generate Bootstrap Compliant forms.</Description>
     <Locale>1033</Locale>
     <License>license.txt</License>
