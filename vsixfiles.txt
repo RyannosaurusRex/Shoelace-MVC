@@ -1,0 +1,7 @@
+ProjectTemplates\CSharp\Web\ShoelaceMVC.zip
+packages\*
+*.png
+extension.vsixmanifest
+license.txt
+ShoelaceMVC.pkgdef
+[Content_Types].xml

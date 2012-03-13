@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="ShoelaceMVC.CSharp.A2634C4B-310F-4F57-9690-BDE944C18A8E">
+    <Name>ShoelaceMVC</Name>
+    <Author>Ryan Hayes</Author>
+    <Version>1.0.1</Version>
+    <Description xml:space="preserve">A project template that uses Twitter's Bootstrap for an elegant UI, CodeFirstMember​ship for quick, easy, extensible membership, and MVCScaffolding to generate Bootstrap Compliant forms.</Description>
+    <Locale>1033</Locale>
+    <License>license.txt</License>
+    <MoreInfoUrl>http://github.com/RyannosaurusRex/Shoelace-MVC</MoreInfoUrl>
+    <GettingStartedGuide>http://ryanhayes.net/blog/shoelacemvc-open-source-asp-net-mvc-3-starter-project-for-build/</GettingStartedGuide>
+    <Icon>VSIXProject_small.png</Icon>
+    <PreviewImage>VSIXProject_large.png</PreviewImage>
+    <InstalledByMsi>false</InstalledByMsi>
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>VWDExpress</Edition>
+      </VisualStudio>
+      <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <Edition>VWDExpress</Edition>
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+  </Identifier>
+  <References>
+    <Reference Id="NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5" MinVersion="1.5.20902.9026">
+      <Name>NuGet Package Manager</Name>
+      <MoreInfoUrl>http://docs.nuget.org/</MoreInfoUrl>
+    </Reference>
+  </References>
+  <Content>
+    <VsPackage>ShoelaceMVC.pkgdef</VsPackage>
+    <ProjectTemplate>ProjectTemplates</ProjectTemplate>
+  </Content>
+</Vsix>

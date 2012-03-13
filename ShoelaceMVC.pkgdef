@@ -1,0 +1,11 @@
+[$RootKey$\MVC3\ProjectTemplates\ShoelaceMVC]
+"Title"="Shoelace MVC"
+"Description"="Jumpstart your MVC 3 project with Code First Membership Provider, Twitter Bootstrap and MVCScaffolding."
+
+[$RootKey$\MVC3\ProjectTemplates\ShoelaceMVC\C#]
+
+[$RootKey$\MVC3\ProjectTemplates\ShoelaceMVC\C#\Razor]
+"Path"="CSharp\\Web"
+"SupportsHTML5"=dword:00000001
+"SupportsUnitTests"=dword:00000001
+"Template"="ShoelaceMVC.zip"
