@@ -1,7 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoelaceMVC", "ShoelaceMVC\ShoelaceMVC.csproj", "{DEFF778C-9385-49DF-A2C8-7D2CFCC7F46D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoelaceMVC", "ShoelaceMVC-Project\ShoelaceMVC\ShoelaceMVC.csproj", "{DEFF778C-9385-49DF-A2C8-7D2CFCC7F46D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C40A3351-9855-4A5C-B486-64EC2330B69D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
