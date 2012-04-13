@@ -103,29 +103,10 @@
                 <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftMvcValidation.js">MicrosoftMvcValidation.js</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="MicrosoftMvcValidation.debug.js">MicrosoftMvcValidation.debug.js</ProjectItem>
             </Folder>
+            <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="Web.Debug.config">Web.Debug.config</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="Web.Release.config">Web.Release.config</ProjectItem>
         </Project>
     </TemplateContent>
-    <WizardExtension>
-        <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
-        <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
-    </WizardExtension>
-    <WizardData>
-        <packages repository="extension" repositoryId="ShoelaceMVC.CSharp.A2634C4B-310F-4F57-9690-BDE944C18A8E">
-          <package id="EntityFramework" version="4.3.1" />
-          <package id="jQuery" version="1.5.1" />
-          <package id="jQuery.UI.Combined" version="1.8.11" />
-          <package id="jQuery.Validation" version="1.8.0" />
-          <package id="jQuery.vsdoc" version="1.5.1" />
-          <package id="microsoft-web-helpers" version="1.15" />
-          <package id="Modernizr" version="1.7" />
-          <package id="Modernizr" version="2.5.3" />
-          <package id="MvcScaffolding" version="1.0.6" />
-          <package id="T4Scaffolding" version="1.0.5" />
-          <package id="Twitter.Bootstrap" version="2.0.2" />
-          <package id="Twitter.Bootstrap.Less" version="2.0.2" />
-        </packages>
-    </WizardData>
 </VSTemplate>
