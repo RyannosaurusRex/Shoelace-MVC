@@ -8,7 +8,7 @@ ShoelaceMVC is a starter project to get you up and running with a *production qu
 
 - CodeFirstMembershipProvider http://codefirstmembership.codeplex.com
 - Twitter Bootstrap http://twitter.github.com/bootstrap
-- MVCScaffolding http://mvcscaffolding.codeplex.com
+- MVCScaffolding http://mvcscaffolding.codeplex.com 
 
 License
 -------
