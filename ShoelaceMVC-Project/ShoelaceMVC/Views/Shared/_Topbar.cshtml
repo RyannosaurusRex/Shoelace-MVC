@@ -12,7 +12,7 @@
             <ul class="nav pull-right">@if(Request.IsAuthenticated) {
                     <li style="padding-top:5px">@Microsoft.Web.Helpers.Gravatar.GetHtml( ShoelaceMVC.Membership.CodeFirstSecurity.GetUserEmail(User.Identity.Name), 30)</li>
                     <li class="dropdown" id="mainMenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#mainMenu">@User.Identity.Name</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#mainMenu">@User.Identity.Name <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Reset Password", "ChangePassword", "Account")</li>
                             <li>@Html.ActionLink("Log Off", "LogOff", "Account")</li>
