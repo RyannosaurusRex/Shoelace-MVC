@@ -1,0 +1,28 @@
+﻿﻿<!-- Topbar -->
+<div class="navbar navbar-fixed-top" >
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/"> ShoelaceMVC</a>
+            <ul class="nav">
+                <li @if (ViewBag.NavActive == "Home")
+                    {<text>class="active"</text>}>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li @if (ViewBag.NavActive == "About")
+                    {<text>class="active"</text>}>@Html.ActionLink("About", "About", "Home")</li>
+            </ul>
+            <ul class="nav pull-right">@if(Request.IsAuthenticated) {
+                    <li style="padding-top:5px">@Microsoft.Web.Helpers.Gravatar.GetHtml( ShoelaceMVC.Membership.CodeFirstSecurity.GetUserEmail(User.Identity.Name), 30)</li>
+                    <li class="dropdown" id="mainMenu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#mainMenu">@User.Identity.Name <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Reset Password", "ChangePassword", "Account")</li>
+                            <li>@Html.ActionLink("Log Off", "LogOff", "Account")</li>
+                        </ul>
+                    </li>
+                 }
+                 else
+                 {
+                <li @if (ViewBag.NavActive == "Log On"){<text>class="active"</text>}>@Html.ActionLink("Log On", "LogOn", "Account")</li>}
+            </ul>
+        </div>
+    </div>
+</div>
