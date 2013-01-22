@@ -30,7 +30,7 @@
                 @Html.LabelFor(m => m.Password)
             </div>
             <div class="editor-field input">
-                @Html.TextBoxFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
         </div>
@@ -39,7 +39,7 @@
                 @Html.LabelFor(m => m.RememberMe)
             </div>
             <div class="editor-field input">
-                @Html.TextBoxFor(m => m.RememberMe)
+                @Html.CheckBoxFor(m => m.RememberMe)
                 @Html.ValidationMessageFor(m => m.RememberMe)
             </div>
         </div>
