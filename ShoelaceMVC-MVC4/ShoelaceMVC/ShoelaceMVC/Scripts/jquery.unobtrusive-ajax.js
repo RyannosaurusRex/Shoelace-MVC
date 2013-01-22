@@ -112,7 +112,7 @@
         return !validationInfo || !validationInfo.validate || validationInfo.validate();
     }
 
-    $("a[data-ajax=true]").live("click", function (evt) {
+    $("a[data-ajax=true]").on("click", function (evt) {
         evt.preventDefault();
         asyncRequest(this, {
             url: this.href,
@@ -121,7 +121,7 @@
         });
     });
 
-    $("form[data-ajax=true] input[type=image]").live("click", function (evt) {
+    $("form[data-ajax=true] input[type=image]").on("click", function (evt) {
         var name = evt.target.name,
             $target = $(evt.target),
             form = $target.parents("form")[0],
@@ -137,7 +137,7 @@
         }, 0);
     });
 
-    $("form[data-ajax=true] :submit").live("click", function (evt) {
+    $("form[data-ajax=true] :submit").on("click", function (evt) {
         var name = evt.target.name,
             form = $(evt.target).parents("form")[0];
 
@@ -148,7 +148,7 @@
         }, 0);
     });
 
-    $("form[data-ajax=true]").live("submit", function (evt) {
+    $("form[data-ajax=true]").on("submit", function (evt) {
         var clickInfo = $(this).data(data_click) || [];
         evt.preventDefault();
         if (!validate(this)) {

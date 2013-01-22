@@ -1,45 +1,28 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    ViewBag.NavActive = "Home";
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>
-        </div>
-    </section>
-}
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
-    </li>
 
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
-
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
-</ol>
+<div class="hero-unit">
+    <h1>@ViewBag.Message</h1>
+    <p>ShoelaceMVC is a better ASP.NET starter project that'll get you going FAST, but with a design that doesn't make you cringe if you go to production the same day.</p>
+    <p><a class="btn primary large" href="http://asp.net/mvc">Learn more &raquo;</a></p>     
+</div>      
+<div class="row"> 
+    <div class="span4"> 
+        <h2>Twitter Bootstrap</h2> 
+        <p>The styling is provided by Twitter's open source CSS/JS framework called Bootstrap.  It provides a clean, easy, and production ready style for deploying great-looking applications without design skills.</p> 
+        <p><a class="btn" href="http://twitter.github.com/bootstrap">Learn more &raquo;</a></p> 
+    </div> 
+    <div class="span4"> 
+        <h2>CodeFirst Membership</h2> 
+        <p>Leveraging the CodeFirst Membership project, you get a membership provider that is every bit as good and secure as the default ASP.NET one, but you can easily include your application tables in the same DB without having to run regeneration tools to ensure the provider is in sync.</p> 
+        <p><a class="btn" href="http://codefirstmembership.codeplex.com">View details &raquo;</a></p> 
+    </div> 
+    <div class="span4">
+        <h2>Support</h2> 
+        <p>There is no warranty with this project, written or implied, and no support save the community.  However it was started by <a href="http://ryanhayes.net">Ryan Hayes</a>, founder of Sonata Cove Software, and he's typically free for inquiries and help.</p> 
+        <p><img width="270" src="@Url.Content("~/Content/images/SonataCoveSoftwareLong.png")"/></p>
+        <p><a class="btn" href="http://ryanhayes.net">Contact Ryan &raquo;</a></p>
+    </div> 
+</div>

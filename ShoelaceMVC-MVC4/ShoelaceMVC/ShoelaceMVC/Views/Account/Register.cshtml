@@ -12,26 +12,42 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
-            <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-            </li>
-        </ol>
-        <input type="submit" value="Register" />
-    </fieldset>
+    <div>
+        <fieldset>
+            <legend>Registration Form</legend>
+            <div class="clearfix">
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.UserName)
+                </div>
+                <div class="editor-field input">
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.Password)
+                </div>
+                <div class="editor-field input">
+                    @Html.PasswordFor(m => m.Password)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                </div>
+                <div class="editor-field input">
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+            </div class="clearfix">
+            <input type="submit" value="Register" />
+        </fieldset>
+    </div>
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
 }
