@@ -1,4 +1,11 @@
 ﻿﻿<!-- Topbar -->
+@if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm"}))
+                {
+                    @Html.AntiForgeryToken()
+                }
+            }
 <div class="navbar navbar-fixed-top" >
     <div class="navbar-inner">
         <div class="container">
@@ -10,14 +17,14 @@
                     {<text>class="active"</text>}>@Html.ActionLink("About", "About", "Home")</li>
             </ul>
             <ul class="nav pull-right">@if(Request.IsAuthenticated) {
-                    <li style="padding-top:5px">@Microsoft.Web.Helpers.Gravatar.GetHtml("ryanhayes84@gmail.com", 30)</li>
-                    <li class="dropdown" id="mainMenu">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#mainMenu">@User.Identity.Name <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Reset Password", "ChangePassword", "Account")</li>
-                            <li>@Html.ActionLink("Log Off", "LogOff", "Account")</li>
-                        </ul>
-                    </li>
+                         <li style="padding-top: 5px">@Microsoft.Web.Helpers.Gravatar.GetHtml("ryanhayes84@gmail.com", 30)</li>
+                         <li class="dropdown" id="mainMenu">
+                             <a class="dropdown-toggle" data-toggle="dropdown" href="#mainMenu">@User.Identity.Name <b class="caret"></b></a>
+                             <ul class="dropdown-menu">
+                                 <li>@Html.ActionLink("Reset Password", "Manage", "Account")</li>
+                                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                             </ul>
+                         </li>
                  }
                  else
                  {

@@ -16,27 +16,37 @@
 
     <fieldset>
         <legend>Log in Form</legend>
-        <ol>
-            <li>
+        <div class="clearfix">
+            <div class="editor-label">
                 @Html.LabelFor(m => m.UserName)
+            </div>
+            <div class="editor-field input">
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-            <li>
+            </div>
+        </div class="clearfix">
+        <div class="clearfix">
+            <div class="editor-label">
                 @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
+            </div>
+            <div class="editor-field input">
+                @Html.TextBoxFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
-            </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
-            </li>
-        </ol>
-        <input type="submit" value="Log in" />
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="editor-label">
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
+            <div class="editor-field input">
+                @Html.TextBoxFor(m => m.RememberMe)
+                @Html.ValidationMessageFor(m => m.RememberMe)
+            </div>
+        </div>
     </fieldset>
-    <p>
-        @Html.ActionLink("Register", "Register") if you don't have an account.
-    </p>
+    <div class="form-actions">
+        <input type="submit" class="btn primary" value="Log In" /> or @Html.ActionLink("Register", "Register") if you don't have an account.
+    </div>
 }
 </section>
 
