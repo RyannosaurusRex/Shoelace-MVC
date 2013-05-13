@@ -1,6 +1,6 @@
 using System.Web.Optimization;
 
-[assembly: WebActivator.PostApplicationStartMethod(typeof(ShoelaceMVC.App_Start.BootstrapBundleConfig), "RegisterBundles")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(ShoelaceMVC.App_Start.BootstrapBundleConfig), "RegisterBundles")]
 
 namespace ShoelaceMVC.App_Start
 {
