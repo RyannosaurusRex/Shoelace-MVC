@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20617.1 PREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoelaceMVC", "ShoelaceMVC\ShoelaceMVC.csproj", "{02B72AC8-14E0-4EA4-ADE2-E8959A143A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoelaceMVC.Tests", "ShoelaceMVC.Tests\ShoelaceMVC.Tests.csproj", "{9A5F8227-CDE0-48CB-ABD0-A29986CB5010}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02B72AC8-14E0-4EA4-ADE2-E8959A143A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B72AC8-14E0-4EA4-ADE2-E8959A143A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B72AC8-14E0-4EA4-ADE2-E8959A143A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B72AC8-14E0-4EA4-ADE2-E8959A143A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A5F8227-CDE0-48CB-ABD0-A29986CB5010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A5F8227-CDE0-48CB-ABD0-A29986CB5010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A5F8227-CDE0-48CB-ABD0-A29986CB5010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A5F8227-CDE0-48CB-ABD0-A29986CB5010}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
