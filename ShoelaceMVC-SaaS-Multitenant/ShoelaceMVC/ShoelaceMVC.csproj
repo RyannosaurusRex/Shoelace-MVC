@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Routing\DomainData.cs" />
     <Compile Include="App_Start\Routing\DomainRoute.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="App_Start\Routing\LinkExtensions.cs" />
     <Compile Include="App_Start\Routing\SignupRouteConstraint.cs" />
@@ -297,6 +298,11 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
+    <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

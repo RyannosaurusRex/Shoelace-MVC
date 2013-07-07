@@ -1,0 +1,87 @@
+@model ShoelaceMVC.Models.Person
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Person</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.FirstName)
+				@Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.LastName)
+				@Html.ValidationMessageFor(model => model.LastName, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.AddressLine1, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.AddressLine1)
+				@Html.ValidationMessageFor(model => model.AddressLine1, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.AddressLine2, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.AddressLine2)
+				@Html.ValidationMessageFor(model => model.AddressLine2, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.City, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.City)
+				@Html.ValidationMessageFor(model => model.City, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.State, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.State)
+				@Html.ValidationMessageFor(model => model.State, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Zip, new { @class = "control-label" })
+			<div class="controls">
+				@Html.EditorFor(model => model.Zip)
+				@Html.ValidationMessageFor(model => model.Zip, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Create" class="btn" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
