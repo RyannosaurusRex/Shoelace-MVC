@@ -16,7 +16,7 @@ Getting Started
 ShoelaceMVC started in 2011 as a starter kit that used Twitter's Bootstrap framework 
 (including compliant scaffolding) and a CodeFirst Membership provider.  It was  great, but in VS2013, the default
 project template is nearly identical in funtionality as ShoelaceMVC was.  In essence, it was obsolete.
-When starting with the SaaS 2.0 version of ShoelaceMVC, look in the SheolaceMVC-Multitenant folder.  Once the SaaS project
+When starting with the SaaS 2.0 version of ShoelaceMVC, look in the ShoelaceMVC-SaaS-Multitenant folder.  Once the SaaS project
 itself gets in a state that's awesome and great, it'll be gutted as an actual VS Project Template.  Unfortunately,
 VS Project Templates are really slow to add new features and test and pull back into a template because of all the search/replace
 that has to happen for namespaces and things, so that may be a month or two down the road.  In the meantime, check out 
