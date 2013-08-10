@@ -1,7 +1,7 @@
 using System.Web;
 using System.Web.Routing;
 
-namespace Ekklio.Web.Routing
+namespace ShoelaceMVC.Routing
 {
     public class SubdomainRouteConstraint : IRouteConstraint
     {

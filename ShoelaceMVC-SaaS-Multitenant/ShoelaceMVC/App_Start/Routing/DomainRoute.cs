@@ -31,6 +31,13 @@ namespace MvcDomainRouting.Code
         public DomainRoute(string domain, string url, object defaults)
             : base(url, new RouteValueDictionary(defaults), new MvcRouteHandler())
         {
+            var route = new RouteValueDictionary(defaults);
+            object s = null;
+            route.TryGetValue("subdomain", out s);
+            if (s != null)
+            {
+                Subdomain = s as string;
+            }
             Domain = domain;
         }
 

@@ -163,6 +163,7 @@
     <Compile Include="App_Start\Routing\DomainData.cs" />
     <Compile Include="App_Start\Routing\DomainRoute.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\ShoelaceController.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="App_Start\Routing\LinkExtensions.cs" />
     <Compile Include="App_Start\Routing\SignupRouteConstraint.cs" />
@@ -174,29 +175,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201307060159568_InitialCreate.cs" />
-    <Compile Include="Migrations\201307060159568_InitialCreate.Designer.cs">
-      <DependentUpon>201307060159568_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201307062150265_Account.cs" />
-    <Compile Include="Migrations\201307062150265_Account.Designer.cs">
-      <DependentUpon>201307062150265_Account.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201307071717397_Added Person.cs" />
-    <Compile Include="Migrations\201307071717397_Added Person.Designer.cs">
-      <DependentUpon>201307071717397_Added Person.cs</DependentUpon>
-    </Compile>
+    <Compile Include="MenuItems.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\GenericRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PersonModels.cs" />
     <Compile Include="Models\ShoelaceDbContext.cs" />
+    <Compile Include="Models\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-responsive.css" />
-    <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -256,11 +247,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\glyphicons-halflings-white.png" />
-    <Content Include="img\glyphicons-halflings.png" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -309,17 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201307060159568_InitialCreate.resx">
-      <DependentUpon>201307060159568_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201307062150265_Account.resx">
-      <DependentUpon>201307062150265_Account.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201307071717397_Added Person.resx">
-      <DependentUpon>201307071717397_Added Person.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -28,6 +28,10 @@ namespace ShoelaceMVC.Models
         [Key]
         public string Id { get; set; }
 
+        public int AccountId { get; set; }
+
+        public Person PersonProfile { get; set; }
+
         public string UserName { get; set; }
     }
 
@@ -96,7 +100,11 @@ namespace ShoelaceMVC.Models
     /// </summary>
     public class Account
     {
+        [Key]
         public int Id { get; set; }
+
+        [Display(Name="Account Display Name")]
+        public string Name { get; set; }
 
         /// <summary>
         /// The master user who purchased or own the account for all users.
@@ -104,7 +112,7 @@ namespace ShoelaceMVC.Models
         public User Owner { get; set; }
 
         /// <summary>
-        /// The subdain off the app's main URL that is associated with this account.t  For usability's sake, it's best that this not be
+        /// The subdomain of the app's main URL that is associated with this account.  For usability's sake, it's best that this not be
         /// changed, since that would also require adjustment of where the VanityDomain is pointing.  I'd suggest that you put in your app for
         /// users to call you and let you manually change it, that way you can make them aware of other changes they'll have to make if they
         /// aren't technical.

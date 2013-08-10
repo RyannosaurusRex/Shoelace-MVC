@@ -27,13 +27,20 @@ namespace ShoelaceMVC
         /// </summary>
         /// <param name="routeData"></param>
         /// <returns>The Tennant Id, which is the Account.Id associated with the domain in the route information.</returns>
-        public static int GetTenantId(this RouteData routeData)
+        public static int GetTenantId(this System.Web.Routing.RouteData routeData)
         {
             DomainRoute dr = (DomainRoute)routeData.Route;
             ShoelaceDbContext db = new ShoelaceDbContext();
             int tenantId = -1;
-            var acc = db.Accounts.FirstOrDefault(x => x.Subdomain == dr.Subdomain);
-            if(null != acc)
+            var sub = routeData.Values["subdomain"] as string;
+            Account acc = null;
+
+            if (sub != null)
+            {
+                acc = db.Accounts.FirstOrDefault(x => x.Subdomain == sub);
+            }
+
+            if (null != acc)
             {
                 tenantId = acc.Id;
             }

@@ -9,11 +9,12 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using ShoelaceMVC.Models;
+using System.Net;
 
 namespace ShoelaceMVC.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ShoelaceController
     {
         public AccountController() : this(IdentityConfig.Secrets, IdentityConfig.Logins, IdentityConfig.Users, IdentityConfig.Roles) { }
 
@@ -35,6 +36,10 @@ namespace ShoelaceMVC.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if(RouteData.GetTenantId() == -1)
+            {
+                HttpContext.Response.Redirect(@"http://signup.myapp.com");
+            }
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -83,6 +88,7 @@ namespace ShoelaceMVC.Controllers
                 {
                     // Create a profile, password, and link the local login before signing in the user
                     User user = new User(model.UserName);
+                    user.AccountId = RouteData.GetTenantId();
                     if (await Users.Create(user) &&
                         await Secrets.Create(new UserSecret(model.UserName, model.Password)) &&
                         await Logins.Add(new UserLogin(user.Id, IdentityConfig.LocalLoginProvider, model.UserName)))
@@ -307,7 +313,7 @@ namespace ShoelaceMVC.Controllers
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
+        public ActionResult LogOff(string x)
         {
             HttpContext.SignOut();
             return RedirectToAction("Index", "Home");
