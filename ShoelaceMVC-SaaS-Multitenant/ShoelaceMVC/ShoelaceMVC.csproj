@@ -163,6 +163,7 @@
     <Compile Include="App_Start\Routing\DomainData.cs" />
     <Compile Include="App_Start\Routing\DomainRoute.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Controllers\ShoelaceController.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="App_Start\Routing\LinkExtensions.cs" />

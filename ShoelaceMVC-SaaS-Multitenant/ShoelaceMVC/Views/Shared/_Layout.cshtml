@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ShoelaceMVC
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,11 +20,30 @@
                 </button>
                 @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "brand" })
                 <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
+                    @if (ViewBag.MenuActive == MenuItems.Dashboard)
+{
+    <li class="active">
+        <a href="/"><i class="icon-desktop"></i><span class="name">Dashboard</span></a>
+    </li>
+}
+else
+{
+    <li>
+        <a href="/"><i class="icon-desktop"></i><span class="name">Dashboard</span></a>
+    </li>
+}
+@if (ViewBag.MenuActive == MenuItems.People)
+{
+    <li class="active">
+        <a href="/People"><i class="icon-user"></i><span class="name">People</span></a>
+    </li>
+}
+else
+{
+    <li>
+        <a href="/People"><i class="icon-user"></i><span class="name">People</span></a>
+    </li>
+}
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
