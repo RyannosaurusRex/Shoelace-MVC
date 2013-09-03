@@ -15,8 +15,7 @@ namespace ShoelaceMVC.Controllers
         // GET: /Person/
         public ActionResult Index()
         {
-            var tenantId = RouteData.GetTenantId();
-            return View(db.PersonRepository.Get(x => x.AccountId == tenantId).ToList());
+            return View(db.PersonRepository.Get().ToList());
         }
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -30,7 +29,7 @@ namespace ShoelaceMVC.Controllers
         public ActionResult Details(Int32 id)
         {
             var tid = RouteData.GetTenantId();
-            Person person = db.PersonRepository.Get().FirstOrDefault(x => x.AccountId == tid && x.Id == id);
+            Person person = db.PersonRepository.Get().FirstOrDefault(x => x.Id == id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -53,7 +52,6 @@ namespace ShoelaceMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                person.AccountId = RouteData.GetTenantId();
                 db.PersonRepository.Insert(person);
                 db.Save();
                 return RedirectToAction("Index");
@@ -64,24 +62,26 @@ namespace ShoelaceMVC.Controllers
 
         //
         // GET: /Person/Edit/5
+        /// <summary>
+        /// This governs both add AND edit, since we're doing basically the same thing for both.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(Int32? id)
         {
-            var tid = RouteData.GetTenantId();
             Person person = null;
             if (id == null)
             {
                 person = new Person();
-                person.AccountId = tid;
             }
             else
             {
-                person = db.PersonRepository.Get().FirstOrDefault(x => x.AccountId == tid && x.Id == id);
+                person = db.PersonRepository.Get().FirstOrDefault(x => x.Id == id);
                 if (person == null)
                 {
                     return HttpNotFound();
                 }
             }
-
 
             return View(person);
         }
@@ -128,8 +128,7 @@ namespace ShoelaceMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Int32 id)
         {
-            var tid = RouteData.GetTenantId();
-            Person person = db.PersonRepository.Get().FirstOrDefault(x => x.Id == id && x.AccountId == tid);
+            Person person = db.PersonRepository.Get().FirstOrDefault(x => x.Id == id);
             db.PersonRepository.Delete(person);
             db.Save();
             return RedirectToAction("Index");
