@@ -1,4 +1,4 @@
-ShoelaceMVC for ASP.NET MVC 4
+ShoelaceMVC
 ==================
 
 Why not an "official" Visual Studio Project Template?
